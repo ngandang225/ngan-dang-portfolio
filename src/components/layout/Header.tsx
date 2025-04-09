@@ -12,7 +12,7 @@ const Navbar = () => {
   const isExperienceActive = activeNav === 'experience';
   const isSkillsActive = activeNav === 'skills';
   const isTestimonialActive = activeNav === 'testimonial';
-  const isBlogActive = activeNav === 'blog';
+  // const isBlogActive = activeNav === 'blog';
   const isContactActive = activeNav === 'contact';
 
   return (

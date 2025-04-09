@@ -7,15 +7,14 @@ import AppContext from '@/contexts/appContext';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useWindowWidth } from '@react-hook/window-size';
 
 type LogoItemProps = {
   src: string;
   name: string;
-  percentage: number;
+  percentage?: number;
 };
 function LogoItem(props: LogoItemProps) {
-  const { src, name, percentage } = props;
+  const { src, name } = props;
   return (
     <div className="px-7 py-6 mx-20 sm:mx-3 rounded-2xl border">
       <div className="p-10 bg-gray-100 rounded-full flex items-center justify-center">
@@ -34,11 +33,11 @@ function LogoItem(props: LogoItemProps) {
 }
 
 export default function Hero() {
-  const screenWidth = useWindowWidth();
+  // const screenWidth = useWindowWidth();
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: screenWidth > 1500 ? 7 : screenWidth > 1200 ? 5 : screenWidth > 640 ? 3 : 1,
+    slidesToShow: window.innerWidth > 1500 ? 7 : window.innerWidth > 1200 ? 5 : window.innerWidth > 640 ? 3 : 1,
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
