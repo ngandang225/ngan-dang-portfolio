@@ -10,36 +10,36 @@ export default function Contact() {
       <div className="scroll-container">
         <h2 className="text-5xl font-bold contact-scroll-text">
           <span>
-            <span className="white-border-text"> Pertest@Gmail.Com _ </span>
-            <span className="text-white"> (704) 555-0127 _ </span>
+            <span className="white-border-text"> dang.thanhngan225@gmail.com _ </span>
+            <span className="text-white"> (+84) 837 884 986 _ </span>
           </span>
           <span>
-            <span className="white-border-text"> Pertest@Gmail.Com _ </span>
-            <span className="text-white"> (704) 555-0127 _ </span>
+            <span className="white-border-text"> dang.thanhngan225@gmail.com _ </span>
+            <span className="text-white"> (+84) 837 884 986 _ </span>
           </span>
           <span>
-            <span className="white-border-text"> Pertest@Gmail.Com _ </span>
-            <span className="text-white"> (704) 555-0127 _ </span>
+            <span className="white-border-text"> dang.thanhngan225@gmail.com _ </span>
+            <span className="text-white"> (+84) 837 884 986 _ </span>
           </span>
           <span>
-            <span className="white-border-text"> Pertest@Gmail.Com _ </span>
-            <span className="text-white"> (704) 555-0127 _ </span>
+            <span className="white-border-text"> dang.thanhngan225@gmail.com _ </span>
+            <span className="text-white"> (+84) 837 884 986 _ </span>
           </span>
           <span>
-            <span className="white-border-text"> Pertest@Gmail.Com _ </span>
-            <span className="text-white"> (704) 555-0127 _ </span>
+            <span className="white-border-text"> dang.thanhngan225@gmail.com _ </span>
+            <span className="text-white"> (+84) 837 884 986 _ </span>
           </span>
           <span>
-            <span className="white-border-text"> Pertest@Gmail.Com _ </span>
-            <span className="text-white"> (704) 555-0127 _ </span>
+            <span className="white-border-text"> dang.thanhngan225@gmail.com _ </span>
+            <span className="text-white"> (+84) 837 884 986 _ </span>
           </span>
           <span>
-            <span className="white-border-text"> Pertest@Gmail.Com _ </span>
-            <span className="text-white"> (704) 555-0127 _ </span>
+            <span className="white-border-text"> dang.thanhngan225@gmail.com _ </span>
+            <span className="text-white"> (+84) 837 884 986 _ </span>
           </span>
           <span>
-            <span className="white-border-text"> Pertest@Gmail.Com _ </span>
-            <span className="text-white"> (704) 555-0127 _ </span>
+            <span className="white-border-text"> dang.thanhngan225@gmail.com _ </span>
+            <span className="text-white"> (+84) 837 884 986 _ </span>
           </span>
         </h2>
       </div>
@@ -118,19 +118,19 @@ export default function Contact() {
               <span>02</span>
             </Link>
             <Link
-              href="#portfolio"
-              onClick={() => updateActiveNav('portfolio')}
+              href="#experience"
+              onClick={() => updateActiveNav('experience')}
               className="text-[#ffffff33] hover:text-white text-3xl flex justify-between border-b py-6 font-bold border-[#ffffff33]"
             >
-              <span>Portfolio</span>
+              <span>Experience</span>
               <span>03</span>
             </Link>
             <Link
-              href="#blog"
+              href="#skills"
               onClick={() => updateActiveNav('blog')}
               className="text-[#ffffff33] hover:text-white text-3xl flex justify-between border-b py-6 font-bold border-[#ffffff33]"
             >
-              <span>Blog</span>
+              <span>Skills</span>
               <span>04</span>
             </Link>
             <Link

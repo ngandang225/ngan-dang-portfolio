@@ -1,15 +1,22 @@
 import AppContext from '@/contexts/appContext';
 import { useContext } from 'react';
-import { FaFacebookF, FaRegEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { FaFacebookF, FaRegEnvelope, FaGithub, FaLinkedinIn,  } from 'react-icons/fa';
+import { IoIosClose } from "react-icons/io";
 import Link from 'next/link';
 
-export default function SubContact() {
-  const { isSubContactOpen } = useContext(AppContext);
+type SubContactProps = {
+  closeSubContact: () => void;
+};
+
+export default function SubContact(props: SubContactProps) {
+  const { closeSubContact } = props;
+  const { isSubContactOpen, updateActiveNav } = useContext(AppContext);
 
   return (
     <div
       className={`fixed top-0 right-0 bg-[#f3f3f3] p-6 pt-20 z-50 w-[22%] h-screen ${isSubContactOpen ? 'sub-contact-animation' : 'sub-contact-animation-hide'}`}
     >
+      <IoIosClose className='absolute top-2 right-2 cursor-pointer rounded-full hover:bg-gray-200' size={32} onClick={closeSubContact} />
       <p className="text-2xl font-bold mb-5">
         <span className="text-orange-500">D</span>ang <span className="text-orange-500">T</span>hi{' '}
         <span className="text-orange-500">T</span>hanh <span className="text-orange-500">N</span>gan
@@ -32,7 +39,7 @@ export default function SubContact() {
 
       <div className="mt-6">
         <p className="uppercase text-orange-500 font-bold text-sm">Call now</p>
-        <p className="mt-1">+84 0332 197 131</p>
+        <p className="mt-1">+84 837 884 986</p>
       </div>
 
       <ul className="flex gap-4 mt-10">
@@ -74,8 +81,8 @@ export default function SubContact() {
         </li>
       </ul>
 
-      <div className="w-full p-2 mt-8 bg-orange-500 text-white rounded flex justify-center items-center">
-        <Link href="#" className="">
+      <div className="w-full p-2 mt-8 bg-black hover:bg-orange-500 cursor-pointer text-white rounded flex justify-center items-center">
+        <Link href={'#contact'} onClick={() => updateActiveNav('contact')}>
           Let&apos;s Talk <span className="text-xl">&#8599;</span>
         </Link>
       </div>

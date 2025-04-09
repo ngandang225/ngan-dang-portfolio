@@ -9,15 +9,15 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import CircularButton from '../circular-button/CircularButton';
 import Image from 'next/image';
 
-export default function Services() {
+export default function Skills() {
   const [expanded, setExpanded] = React.useState<string | false>(false);
   const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
   };
   return (
-    <section className="pt-28" id="services">
+    <section className="pt-28" id="skills">
       <div className="container relative">
-        <HeadingWithLine text="Latest Services" />
+        <HeadingWithLine text="My Skills" />
         <Image
           alt="shape-black"
           width={129}

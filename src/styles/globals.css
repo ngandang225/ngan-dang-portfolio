@@ -7,6 +7,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-orange: #f97316;
+  --orange-100: #fff7ed;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -228,7 +230,7 @@ a {
 }
 
 .item-wrapper:hover .hover-orange-bg {
-  background: #f97316 !important;
+  background: var(--primary-orange) !important;
 }
 
 .item-wrapper:hover .hover-white-bg {
@@ -249,7 +251,7 @@ a {
   left: 0;
   width: 0%;
   height: 0%;
-  background-color: #f97316;
+  background-color: var(--primary-orange);
   border-radius: 50%;
   transform-origin: bottom left;
   opacity: 0;
@@ -302,4 +304,21 @@ a {
     opacity: 0;
     transform: translateX(100%);
   }
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--orange-100); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-orange); 
+  border-radius: 8px;
+}
+
+/* React Slick */
+.slick-dots {
+  display: none !important;
 }

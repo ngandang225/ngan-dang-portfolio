@@ -2,9 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebookF, FaRegEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { logoList } from '@/constants/logoList';
-// import Slider from 'react-slick';
-// import 'slick-carousel/slick/slick.css';
-// import 'slick-carousel/slick/slick-theme.css';
+import { useContext } from 'react';
+import AppContext from '@/contexts/appContext';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { useWindowWidth } from '@react-hook/window-size';
 
 type LogoItemProps = {
   src: string;
@@ -14,33 +17,37 @@ type LogoItemProps = {
 function LogoItem(props: LogoItemProps) {
   const { src, name, percentage } = props;
   return (
-    <div className="px-7 py-6 rounded-full border">
+    <div className="px-7 py-6 mx-20 sm:mx-3 rounded-2xl border">
       <div className="p-10 bg-gray-100 rounded-full flex items-center justify-center">
         <Image
           alt={name}
           width={60}
           height={60}
           src={src}
-          className="object-contain max-w-16 max-h-16"
+          className="object-contain max-w-16 max-h-16 aspect-square"
         />
       </div>
-      <p className="text-center mt-12 font-bold text-3xl">{percentage}%</p>
-      <p className="text-center uppercase text-gray-600 mt-1 mb-12">{name}</p>
+      <p className="text-center mt-12 font-bold text-2xl">{name}</p>
+      {/* <p className="text-center uppercase text-gray-600 mt-1 mb-12">{name}</p> */}
     </div>
   );
 }
 
 export default function Hero() {
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 1000,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 1,
-  //   autoplay: true,
-  //   autoplaySpeed: 2000,
-  //   cssEase: 'linear',
-  // };
+  const screenWidth = useWindowWidth();
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: screenWidth > 1500 ? 7 : screenWidth > 1200 ? 5 : screenWidth > 640 ? 3 : 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    cssEase: "linear"
+  };
+
+  const { updateActiveNav } = useContext(AppContext);
+  
   return (
     <section className="pt-20 mt-[103px] p-3 relative" id="hero">
       <div className="container">
@@ -88,7 +95,7 @@ export default function Hero() {
         <div className="grid grid-cols-12">
           <div className="col-span-4"></div>
           <div className="col-span-8 font-semibold flex gap-4 z-[1] relative">
-            <Link href="#" className="px-8 py-4 bg-black text-white rounded-full">
+            <Link href="#contact" className="px-8 py-4 bg-black text-white rounded-full" onClick={() => updateActiveNav('contact')}>
               Let&apos;s Talk <span className="text-xl">&#8599;</span>
             </Link>
             <Link
@@ -154,12 +161,12 @@ export default function Hero() {
           />
         </div>
       </div>
-      <div className="slider-container flex gap-6 mt-96">
-        {/* <Slider {...settings}> */}
+      <div className="slider-container mt-96">
+        <Slider {...settings}>
         {logoList.map((item, index) => (
           <LogoItem key={index} src={item.src} name={item.name} percentage={item.percentage} />
         ))}
-        {/* </Slider> */}
+        </Slider>
       </div>
     </section>
   );

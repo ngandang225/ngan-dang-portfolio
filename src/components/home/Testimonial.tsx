@@ -106,7 +106,7 @@ export default function Testimonial() {
           />
         </div>
       </div>
-      <div className="scroll-container mt-28">
+      {/* <div className="scroll-container mt-28">
         <h2 className="text-6xl font-bold scroll-text">
           <span>
             <span className="border-text">User Interface _ </span>
@@ -124,7 +124,7 @@ export default function Testimonial() {
             <span className="border-text">User Experience</span>
           </span>
         </h2>
-      </div>
+      </div> */}
     </div>
   );
 }

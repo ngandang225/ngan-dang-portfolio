@@ -9,22 +9,22 @@ const Navbar = () => {
 
   const isHomeActive = activeNav === 'hero';
   const isAboutMeActive = activeNav === 'about-me';
-  const isPortfolioActive = activeNav === 'portfolio';
-  const isServicesActive = activeNav === 'services';
+  const isExperienceActive = activeNav === 'experience';
+  const isSkillsActive = activeNav === 'skills';
   const isTestimonialActive = activeNav === 'testimonial';
   const isBlogActive = activeNav === 'blog';
   const isContactActive = activeNav === 'contact';
 
   return (
-    <header className="h-[103px] fixed bg-white z-50 w-screen px-4">
+    <header className="h-[103px] fixed bg-white z-50 w-screen">
       {/* Desktop Navbar */}
-      <div className="w-full h-full hidden md:block">
+      <div className="w-full h-full">
         <div className="flex items-center h-full justify-between font-[500] mx-auto border-b">
-          <Link href="/" className="text-3xl font-bold px-20 h-full flex items-center border-r">
-            P<span className="text-orange-500">e</span>
-            rtest
+          <Link href="/" className="text-3xl font-bold px-10 h-full flex items-center lg:border-r">
+            P<span className="text-orange-500">o</span>
+            rtfolio
           </Link>
-          <ul className="flex gap-4 justify-start items-center h-full font-bold">
+          <ul className="gap-4 justify-start items-center h-full font-bold hidden lg:flex">
             <li className="p-4 home relative">
               <Link
                 href={'/'}
@@ -35,7 +35,7 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              <div className="hover-home absolute w-[250px] z-50 bg-white top-full left-0 shadow-lg text-black text-sm">
+              {/* <div className="hover-home absolute w-[250px] z-50 bg-white top-full left-0 shadow-lg text-black text-sm">
                 <ul className="p-1">
                   <li className="p-3 hover:pl-6 hover:text-orange-500 border-b">
                     <Link href={'#'} className="w-full block font-bold">
@@ -48,7 +48,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </li>
             <li className="p-4">
               <Link
@@ -61,20 +61,20 @@ const Navbar = () => {
             </li>
             <li className="p-4">
               <Link
-                href={'#portfolio'}
-                onClick={() => updateActiveNav('portfolio')}
-                className={`font-bold ${isPortfolioActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
+                href={'#experience'}
+                onClick={() => updateActiveNav('experience')}
+                className={`font-bold ${isExperienceActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
               >
-                Portfolio
+                Experience
               </Link>
             </li>
             <li className="p-4">
               <Link
-                href={'#services'}
-                onClick={() => updateActiveNav('services')}
-                className={`font-bold ${isServicesActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
+                href={'#skills'}
+                onClick={() => updateActiveNav('skills')}
+                className={`font-bold ${isSkillsActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
               >
-                Services
+                Skills
               </Link>
             </li>
             <li className="p-4">
@@ -86,7 +86,7 @@ const Navbar = () => {
                 Testimonial
               </Link>
             </li>
-            <li className="p-4">
+            {/* <li className="p-4">
               <Link
                 href={'#blog'}
                 onClick={() => updateActiveNav('blog')}
@@ -94,7 +94,7 @@ const Navbar = () => {
               >
                 Blog
               </Link>
-            </li>
+            </li> */}
             <li className="p-4">
               <Link
                 href={'#contact'}
@@ -106,9 +106,9 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="h-full flex items-center gap-4 border-l">
-            <Link href="#" className="font-bold px-12 hover:text-orange-500">
+            {/* <Link href="#" className="font-bold px-12 hover:text-orange-500">
               Let&apos;s Talk <span className="text-lg">&#8599;</span>
-            </Link>
+            </Link> */}
             <button className="px-9 h-full bg-black" onClick={() => updateIsSubContactOpen(true)}>
               <RiMenu5Fill size={28} color="white" />
             </button>

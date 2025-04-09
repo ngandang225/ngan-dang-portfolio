@@ -2,9 +2,9 @@ import Link from 'next/link';
 import CircularButton from '../circular-button/CircularButton';
 import HeadingWithLine from '../heading-with-line/HeadingWithLine';
 
-export default function Portfolio() {
+export default function Experience() {
   return (
-    <section className="mt-36 py-36 bg-black" id="portfolio">
+    <section className="mt-36 py-36 bg-black" id="experience">
       <div className="container">
         <div className="flex items-end justify-between">
           <HeadingWithLine text="Latest Project" color="white" />

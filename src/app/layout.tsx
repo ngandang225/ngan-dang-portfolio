@@ -19,7 +19,7 @@ import AppProvider from './contextProvider';
 export const metadata: Metadata = {
   title: 'Dang Thi Thanh Ngan',
   description: 'Dang Thi Thanh Ngan - Portfolio',
-  icons: '/assets/images/favicon.png',
+  icons: '/assets/images/portfolio.png',
 };
 
 type RootLayoutProps = {

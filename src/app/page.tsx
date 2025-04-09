@@ -3,8 +3,8 @@
 import * as React from 'react';
 import Hero from '@/components/home/Hero';
 import AboutMe from '@/components/home/AboutMe';
-import Portfolio from '@/components/home/Portfolio';
-import Services from '@/components/home/Services';
+import Experience from '@/components/home/Experience';
+import Skills from '@/components/home/Skills';
 import Testimonial from '@/components/home/Testimonial';
 import Pricing from '@/components/home/Pricing';
 import Partner from '@/components/home/Partner';
@@ -45,19 +45,19 @@ export default function Home() {
     <div>
       <Hero />
       <AboutMe />
-      <Portfolio />
-      <Services />
+      <Experience />
+      <Skills />
       <Testimonial />
-      <Pricing />
-      <Partner />
-      <Blog />
+      {/* <Pricing /> */}
+      {/* <Partner /> */}
+      {/* <Blog /> */}
       <Contact />
       {isSubContactOpen && (
         <OutsideClickHandler onOutsideClick={() => updateIsSubContactOpen(false)}>
-          <SubContact />
+          <SubContact closeSubContact={() => updateIsSubContactOpen(false)} />
         </OutsideClickHandler>
       )}
-      <div className="fixed bottom-12 right-12 w-12 h-12">
+      <div className="fixed bottom-12 right-12 w-12 h-12 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
         <CircularProgressbarWithChildren
           value={percentage}
           strokeWidth={4}
