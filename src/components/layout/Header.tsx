@@ -6,7 +6,7 @@ import { RiMenu5Fill } from 'react-icons/ri';
 
 const Navbar = () => {
   const { activeNav, updateActiveNav, updateIsSubContactOpen } = useContext(AppContext);
-
+  
   const isHomeActive = activeNav === 'hero';
   const isAboutMeActive = activeNav === 'about-me';
   const isExperienceActive = activeNav === 'experience';
@@ -16,9 +16,9 @@ const Navbar = () => {
   const isContactActive = activeNav === 'contact';
 
   return (
-    <header className="h-[103px] fixed bg-white z-50 w-screen">
+    <header className="h-20 lg:h-24 fixed bg-white z-50 w-screen">
       {/* Desktop Navbar */}
-      <div className="w-full h-full">
+      <div className="max-w-[1560px] h-full mx-auto">
         <div className="flex items-center h-full justify-between font-[500] mx-auto border-b">
           <Link href="/" className="text-3xl font-bold px-10 h-full flex items-center lg:border-r">
             P<span className="text-orange-500">o</span>

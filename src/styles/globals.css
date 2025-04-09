@@ -9,6 +9,7 @@
   --foreground: #171717;
   --primary-orange: #f97316;
   --orange-100: #fff7ed;
+  --max-width: 1320px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,7 +30,6 @@ body {
   background: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* max-width: 1320px; */
 }
 
 * {
@@ -59,7 +59,7 @@ a {
 }
 
 .container {
-  max-width: 1320px !important;
+  max-width: var(--max-width) !important;
   margin-left: auto;
   margin-right: auto;
 }
@@ -148,6 +148,13 @@ a {
     rgba(255, 255, 255, 1) 100%
   );
   z-index: 2;
+}
+
+@media (max-width: 1280px) {
+  .profession::before,
+  .profession::after {
+    display: none;
+  }
 }
 
 .testimonial-heading {
@@ -321,4 +328,11 @@ a {
 /* React Slick */
 .slick-dots {
   display: none !important;
+}
+
+/* Hero */
+@media (min-width: 1600px) {
+  .hero-image {
+    margin-left: calc((100vw - 1320px - 120px) / 2);
+  }
 }

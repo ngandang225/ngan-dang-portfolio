@@ -5,9 +5,9 @@ import HeadingWithLine from '../heading-with-line/HeadingWithLine';
 export default function AboutMe() {
   return (
     <section className="pt-28" id="about-me">
-      <div className="container">
+      <div className="container px-4">
         <HeadingWithLine text="About Me" />
-        <p className="font-bold text-5xl mt-12 mb-10 leading-tight">
+        <p className="font-bold text-2xl lg:text-5xl mt-12 mb-10 leading-tight">
           I am a Software Developer with 2 years of experience in{' '}
           <span className="text-orange-500">Web Development</span>, tackling challenges and
           delivering effective, high-quality solutions for diverse projects.
