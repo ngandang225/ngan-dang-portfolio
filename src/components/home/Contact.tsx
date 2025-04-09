@@ -6,7 +6,7 @@ import { FaFacebookF, FaRegEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/
 export default function Contact() {
   const { updateActiveNav } = useContext(AppContext);
   return (
-    <section className="pt-40 bg-black" id="contact">
+    <section className="pt-14 lg:pt-40 bg-black" id="contact">
       <div className="scroll-container">
         <h2 className="text-5xl font-bold contact-scroll-text">
           <span>
@@ -43,10 +43,10 @@ export default function Contact() {
           </span>
         </h2>
       </div>
-      <div className="container py-24">
+      <div className="container py-24 px-4">
         <div className="grid grid-cols-2">
-          <div className="px-3">
-            <h2 className="text-white text-8xl font-bold">Let’s Contact!</h2>
+          <div className="lg:px-3 col-span-2 lg:col-span-1">
+            <h2 className="text-white text-4xl lg:text-8xl font-bold">Let’s Contact!</h2>
             <p className="text-light-gray mt-5 mb-9">
               I am always open to discussing new projects, creative ideas, or opportunities to be a
               part of your vision. Feel free to reach out through.
@@ -96,11 +96,11 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-            <button className="text-white bg-orange-500 hover:bg-opacity-90 px-9 py-4 font-bold mt-12">
+            <button className="text-white bg-orange-500 hover:bg-opacity-90 px-9 py-4 font-bold mt-12 w-full lg:w-fit">
               Let’s Talk <span className="text-xl">&#8599;</span>
             </button>
           </div>
-          <div className="ml-28 flex flex-col justify-center">
+          <div className="lg:ml-28 flex flex-col justify-center col-span-2 lg:col-span-1">
             <Link
               href="/"
               onClick={() => updateActiveNav('hero')}
@@ -141,7 +141,7 @@ export default function Contact() {
               <span>Contact</span>
               <span>05</span>
             </Link>
-            <ul className="flex gap-8 mt-12">
+            <ul className="flex gap-8 mt-12 w-fit mx-auto lg:ml-0">
               <li>
                 <a
                   target="_blank"

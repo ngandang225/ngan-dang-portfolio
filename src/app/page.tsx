@@ -17,7 +17,7 @@ import AppContext from '@/contexts/appContext';
 
 export default function Home() {
   const [percentage, setPercentage] = React.useState<number>(0);
-  const { isSubContactOpen, updateIsSubContactOpen } = useContext(AppContext);
+  const { isSubContactOpen, updateIsSubContactOpen, updateActiveNav } = useContext(AppContext);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +38,12 @@ export default function Home() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleClickScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    updateActiveNav('hero');
+  }
+
   return (
     <div>
       <Hero />
@@ -54,7 +60,7 @@ export default function Home() {
           <SubContact closeSubContact={() => updateIsSubContactOpen(false)} />
         </OutsideClickHandler>
       )}
-      <div className="fixed bottom-12 right-12 w-12 h-12 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      <div className="fixed bottom-3 lg:bottom-12 right-3 lg:right-12 w-12 h-12 cursor-pointer z-40" onClick={handleClickScrollToTop}>
         <CircularProgressbarWithChildren
           value={percentage}
           strokeWidth={4}

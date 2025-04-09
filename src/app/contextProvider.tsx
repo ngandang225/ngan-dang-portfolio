@@ -10,7 +10,7 @@ type AppProviderProps = {
 const AppProvider = (props: AppProviderProps) => {
   const { children } = props;
 
-  const [activeNav, setActiveNav] = React.useState<string>('');
+  const [activeNav, setActiveNav] = React.useState<string>('hero');
   const [isSubContactOpen, setIsSubContactOpen] = React.useState<boolean>(false);
 
   const contextValue: AppContextProps = {
