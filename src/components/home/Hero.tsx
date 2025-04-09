@@ -2,11 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebookF, FaRegEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { logoList } from '@/constants/logoList';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import AppContext from '@/contexts/appContext';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useWindowWidth } from '@react-hook/window-size';
 
 type LogoItemProps = {
   src: string;
@@ -33,19 +34,29 @@ function LogoItem(props: LogoItemProps) {
 }
 
 export default function Hero() {
-  // const screenWidth = useWindowWidth();
+  const screenWidth = useWindowWidth();
+  const [hasMounted, setHasMounted] = useState(false);
+  const { updateActiveNav } = useContext(AppContext);
+
+  useEffect(() => {
+    // Wait until the component has mounted to prevent SSR mismatch
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) return null; // Avoid SSR mismatch by not rendering until mounted
+
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: window.innerWidth > 1500 ? 7 : window.innerWidth > 1200 ? 5 : window.innerWidth > 640 ? 3 : 1,
+    slidesToShow:
+      screenWidth > 1500 ? 7 : screenWidth > 1200 ? 5 : screenWidth > 640 ? 3 : 1,
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
     autoplaySpeed: 2000,
-    cssEase: "linear"
+    cssEase: "linear",
   };
 
-  const { updateActiveNav } = useContext(AppContext);
   
   return (
     <section className="pt-20 mt-[103px] p-3 relative" id="hero">
