@@ -12,7 +12,7 @@ export default function AboutMe() {
           <span className="text-orange-500">Web Development</span>, tackling challenges and
           delivering effective, high-quality solutions for diverse projects.
         </p>
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-0">
           <div className="flex flex-col justify-between">
             <div className="px-[20%] py-[5%] relative">
               <Image
@@ -33,17 +33,17 @@ export default function AboutMe() {
                 width={129}
                 height={148}
                 src="/assets/images/home/shape-black.svg"
-                className="absolute right-12 -bottom-8"
+                className="absolute right-0 lg:right-12 -bottom-8"
               />
             </div>
-            <CircularButton text="About Me" position="ml-[20%]" />
+            <CircularButton text="About Me" position="ml-[20%]" hideInMobile={true} />
           </div>
           <Image
             alt="profile-pic(1)"
             width={650}
             height={650}
             src="/assets/images/home/profile-pic(1).jpg"
-            className="w-full object-cover px-3"
+            className="w-full object-cover lg:px-3"
           />
         </div>
       </div>

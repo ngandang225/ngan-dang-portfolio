@@ -25,8 +25,8 @@ export default function Testimonial() {
   };
   return (
     <div className="py-20" id="testimonial">
-      <div className="container">
-        <span className="text-[160px] leading-[1.25] font-bold testimonial-heading text-white">
+      <div className="container px-4">
+        <span className="text-5xl lg:text-[160px] leading-[1.25] font-bold testimonial-heading text-white">
           Testimonial
         </span>
         <Image
@@ -34,10 +34,10 @@ export default function Testimonial() {
           width={104}
           height={76}
           src="/assets/images/home/testimonial/quate.png"
-          className="-mt-4"
+          className="mt-4 lg:-mt-4"
         />
         <div className="grid grid-cols-12 mt-10">
-          <div className="col-span-7 pr-10 flex flex-col justify-between">
+          <div className="col-span-12 lg:col-span-7 lg:pr-10 flex flex-col justify-between">
             <p className="text-2xl font-bold">
               Working with Ngan has been a game. Their ability to understand our vision and
               translate it into was impressive. The design solutions provided by Came improved our
@@ -45,7 +45,7 @@ export default function Testimonial() {
             </p>
             <div>
               <div className="grid grid-cols-12">
-                <div className="col-span-5">
+                <div className="col-span-3 lg:col-span-5">
                   <Image
                     alt="style"
                     width={140}
@@ -54,24 +54,24 @@ export default function Testimonial() {
                     className="object-cover scale-75 mx-auto"
                   />
                 </div>
-                <div className="col-span-7 flex gap-10">
+                <div className="col-span-9 lg:col-span-7 flex gap-4 lg:gap-10">
                   <Image
                     alt="image"
                     width={196}
                     height={274}
                     src={`/assets/images/home/testimonial/image${imageList[0]}.jpg`}
-                    className="-mt-4 object-cover"
+                    className="mt-4 lg:-mt-4 object-cover testimonial-sub-image"
                   />
                   <Image
                     alt="image"
                     width={196}
                     height={274}
                     src={`/assets/images/home/testimonial/image${imageList[1]}.jpg`}
-                    className="-mt-4 object-cover"
+                    className="mt-4 lg:-mt-4 object-cover testimonial-sub-image"
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-12 mt-14">
+              <div className="grid grid-cols-12 my-4 lg:mt-14 lg:mb-0">
                 <div className="col-span-5">
                   <Image
                     alt="arrow"
@@ -80,7 +80,7 @@ export default function Testimonial() {
                     src="/assets/images/home/lg-arrow.svg"
                   />
                 </div>
-                <div className="col-span-7 flex gap-4">
+                <div className="col-span-7 flex gap-4 justify-end lg:justify-start">
                   <button
                     onClick={handleToLeft}
                     className="text-white bg-black p-4 rounded-full hover:bg-white border border-black hover:border-gray-200 hover:text-black"
@@ -102,7 +102,7 @@ export default function Testimonial() {
             width={526}
             height={673}
             src={`/assets/images/home/testimonial/image${imageList[2]}.jpg`}
-            className="col-span-5 object-cover px-4"
+            className="col-span-12 lg:col-span-5 object-cover lg:px-4"
           />
         </div>
       </div>

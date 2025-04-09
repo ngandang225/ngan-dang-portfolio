@@ -180,6 +180,15 @@ a {
   background: linear-gradient(90deg, rgba(243, 243, 243, 0) 0%, rgba(15, 14, 14, 0.07) 100%);
 }
 
+@media (max-width: 1024px) {
+  .testimonial-heading::after {
+    height: 40px;
+  }
+  .testimonial-sub-image {
+    width: 45%;
+  }
+}
+
 .border-text {
   text-shadow:
     1px 0 #c2c2c2,
@@ -334,5 +343,15 @@ a {
 @media (min-width: 1600px) {
   .hero-image {
     margin-left: calc((100vw - 1320px - 120px) / 2);
+  }
+}
+
+/* Skills */
+@media (max-width: 1024px) {
+  .css-jineix-MuiButtonBase-root-MuiAccordionSummary-root {
+    padding: 0 !important;
+  }
+  .css-1lj39kh-MuiAccordionDetails-root {
+    padding: 8px 0 !important;
   }
 }

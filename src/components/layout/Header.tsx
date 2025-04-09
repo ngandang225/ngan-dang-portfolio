@@ -20,7 +20,7 @@ const Navbar = () => {
       {/* Desktop Navbar */}
       <div className="max-w-[1560px] h-full mx-auto">
         <div className="flex items-center h-full justify-between font-[500] mx-auto border-b">
-          <Link href="/" className="text-3xl font-bold px-10 h-full flex items-center lg:border-r">
+          <Link href="/" className="text-3xl font-bold px-4 lg:px-10 h-full flex items-center lg:border-r">
             P<span className="text-orange-500">o</span>
             rtfolio
           </Link>

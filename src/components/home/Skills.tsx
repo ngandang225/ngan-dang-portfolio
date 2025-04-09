@@ -16,14 +16,14 @@ export default function Skills() {
   };
   return (
     <section className="pt-28" id="skills">
-      <div className="container relative">
+      <div className="container relative px-4">
         <HeadingWithLine text="My Skills" />
         <Image
           alt="shape-black"
           width={129}
           height={148}
           src="/assets/images/home/shape-black.svg"
-          className="object-contain z-1 absolute right-0 top-0 rotate-180 -scale-x-100 -mr-16"
+          className="object-contain z-1 absolute right-0 top-0 rotate-180 -scale-x-100 lg:-mr-16"
         />
         <div className="my-12">
           {servicesList.map((item, index) => (
@@ -38,7 +38,7 @@ export default function Skills() {
                 id="panel1bh-header"
                 className="relative"
               >
-                <p className="text-8xl font-bold">{item.summary}</p>
+                <p className="text-4xl lg:text-8xl font-bold">{item.summary}</p>
                 {expanded === `panel${index}` ? (
                   <div className="absolute right-0">
                     <CircularButton text="View" position="" />
