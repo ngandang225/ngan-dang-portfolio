@@ -57,6 +57,7 @@ export default function Hero() {
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    arrows: false
   };
 
   
