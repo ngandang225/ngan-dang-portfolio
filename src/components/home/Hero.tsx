@@ -109,14 +109,14 @@ export default function Hero() {
         <div className="grid grid-cols-12">
           <div className="col-span-4"></div>
           <div className="col-span-12 md:col-span-8 font-semibold grid grid-cols-2 md:flex gap-4 z-[1] relative mt-32 lg:mt-0">
-            <Link href="#contact" className="px-8 py-4 bg-black text-white flex justify-center items-center text-center rounded-full" onClick={() => updateActiveNav('contact')}>
+            <Link href="#contact" className="px-8 py-4 bg-black text-white flex justify-center items-center text-center rounded-full hover:bg-orange-500" onClick={() => updateActiveNav('contact')}>
               Let&apos;s Talk <span className="text-xl">&#8599;</span>
             </Link>
             <Link
-              href="#"
-              className="px-8 py-4 bg-white text-black border border-black flex justify-center items-center text-center rounded-full"
+              href="#about-me"
+              className="px-8 py-4 bg-white text-black border border-black flex justify-center items-center text-center rounded-full hover:text-white hover:bg-orange-500 hover:border-orange-500"
             >
-              Download CV <span className="text-xl">&#8599;</span>
+              Explore Me <span className="text-xl">&#8599;</span>
             </Link>
             <Image alt="arrow" className='hidden lg:block' width={screenWidth < 1280 ? 90 : 133} height={20} src="/assets/images/home/lg-arrow.svg" />
             <ul className="col-span-2 grid grid-cols-4 lg:gap-4 lg:flex lg:items-center">
@@ -124,7 +124,7 @@ export default function Hero() {
                 <a
                   target="_blank"
                   href="https://www.facebook.com/dangthanhngan225/"
-                  className="w-[60px] aspect-square flex justify-center items-center rounded-full bg-gray-100"
+                  className="w-[60px] aspect-square flex justify-center items-center rounded-full bg-gray-100 hover:text-white hover:bg-black"
                 >
                   <FaFacebookF size={22} />
                 </a>
@@ -133,7 +133,7 @@ export default function Hero() {
                 <a
                   href="https://www.linkedin.com/in/dangthithanhngan/"
                   target="_blank"
-                  className="w-[60px] aspect-square flex justify-center items-center rounded-full bg-gray-100"
+                  className="w-[60px] aspect-square flex justify-center items-center rounded-full bg-gray-100 hover:text-white hover:bg-black"
                 >
                   <FaLinkedinIn size={22} />
                 </a>
@@ -142,7 +142,7 @@ export default function Hero() {
                 <a
                   href="https://github.com/ngandang225"
                   target="_blank"
-                  className="w-[60px] aspect-square flex justify-center items-center rounded-full bg-gray-100"
+                  className="w-[60px] aspect-square flex justify-center items-center rounded-full bg-gray-100 hover:text-white hover:bg-black"
                 >
                   <FaGithub size={22} />
                 </a>
@@ -151,7 +151,7 @@ export default function Hero() {
                 <a
                   href="mailto:dang.thanhngan225@gmail.com"
                   target="_blank"
-                  className="w-[60px] aspect-square flex justify-center items-center rounded-full bg-gray-100"
+                  className="w-[60px] aspect-square flex justify-center items-center rounded-full bg-gray-100 hover:text-white hover:bg-black"
                 >
                   <FaRegEnvelope size={22} />
                 </a>

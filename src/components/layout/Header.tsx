@@ -16,7 +16,7 @@ const Navbar = () => {
   const isContactActive = activeNav === 'contact';
 
   return (
-    <header className="h-20 lg:h-24 fixed bg-white z-50 w-screen">
+    <header className="h-20 lg:h-[88px] fixed bg-white z-50 w-screen">
       {/* Desktop Navbar */}
       <div className="max-w-[1560px] h-full mx-auto">
         <div className="flex items-center h-full justify-between font-[500] mx-auto border-b">

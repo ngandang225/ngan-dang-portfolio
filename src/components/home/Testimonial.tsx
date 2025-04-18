@@ -39,9 +39,7 @@ export default function Testimonial() {
         <div className="grid grid-cols-12 mt-10">
           <div className="col-span-12 lg:col-span-7 lg:pr-10 flex flex-col justify-between">
             <p className="text-2xl font-bold">
-              Working with Ngan has been a game. Their ability to understand our vision and
-              translate it into was impressive. The design solutions provided by Came improved our
-              user engagement.
+              Working with Ngan has been an absolute pleasure. Ngan is not only technically skilled but also incredibly reliable and proactive in her approach to solving problems.
             </p>
             <div>
               <div className="grid grid-cols-12">
@@ -83,13 +81,13 @@ export default function Testimonial() {
                 <div className="col-span-7 flex gap-4 justify-end lg:justify-start">
                   <button
                     onClick={handleToLeft}
-                    className="text-white bg-black p-4 rounded-full hover:bg-white border border-black hover:border-gray-200 hover:text-black"
+                    className="text-white bg-black p-4 rounded-full hover:bg-white border border-black hover:border-orange-500 hover:text-black"
                   >
                     <FaArrowLeft />
                   </button>
                   <button
                     onClick={handleToRight}
-                    className="text-white bg-black p-4 rounded-full hover:bg-white border border-black hover:border-gray-200 hover:text-black"
+                    className="text-white bg-black p-4 rounded-full hover:bg-white border border-black hover:border-orange-500 hover:text-black"
                   >
                     <FaArrowRight />
                   </button>

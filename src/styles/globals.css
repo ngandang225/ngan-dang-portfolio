@@ -323,6 +323,9 @@ a {
 }
 
 /* Scroll bar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -354,4 +357,23 @@ a {
   .css-1lj39kh-MuiAccordionDetails-root {
     padding: 8px 0 !important;
   }
+}
+
+/* Experience */
+#experience .slick-slide {
+  opacity: 0.5;
+}
+#experience .slick-slide.slick-active.slick-center.slick-current {
+  opacity: 1;
+  scale: 105%;
+}
+.slick-prev, .slick-next {
+  width: 60px !important;
+  height: 60px !important;
+}
+.slick-prev::before, .slick-next::before {
+  font-size: 60px !important;
+}
+.slick-arrow {
+  z-index: 50;
 }

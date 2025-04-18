@@ -1,10 +1,29 @@
 import AppContext from '@/contexts/appContext';
+import { sendEmail } from '@/utils/sendEmail';
 import Link from 'next/link';
-import { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaFacebookF, FaRegEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
 export default function Contact() {
   const { updateActiveNav } = useContext(AppContext);
+  const [contactForm, setContactForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setContactForm({ ...contactForm, [e.target.name]: e.target.value });
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const res = await sendEmail(contactForm);
+    alert(res.message);
+  }
+
   return (
     <section className="pt-14 lg:pt-40 bg-black" id="contact">
       <div className="scroll-container">
@@ -51,54 +70,80 @@ export default function Contact() {
               I am always open to discussing new projects, creative ideas, or opportunities to be a
               part of your vision. Feel free to reach out through.
             </p>
-            <div className="grid grid-cols-2 text-white gap-6">
-              <div>
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-2 text-white gap-6">
                 <div className="flex flex-col gap-3">
-                  <label className="font-bold">First Name</label>
-                  <input
-                    type="text"
-                    className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-3 mt-7">
-                  <label className="font-bold">
-                    Email <span className="text-orange-500">*</span>
+                  <label className="font-bold" htmlFor='firstName'>
+                    First Name <span className="text-orange-500">*</span>
                   </label>
                   <input
                     type="text"
+                    name="firstName"
+                    id="firstName"
+                    required
+                    onChange={handleChange}
                     className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
                   />
                 </div>
-              </div>
-              <div>
                 <div className="flex flex-col gap-3">
-                  <label className="font-bold">Last Name</label>
+                  <label className="font-bold" htmlFor='lastName'>
+                    Last Name <span className="text-orange-500">*</span>
+                  </label>
                   <input
                     type="text"
+                    name='lastName'
+                    id='lastName'
+                    required
+                    onChange={handleChange}
                     className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
                   />
                 </div>
-                <div className="flex flex-col gap-3 mt-7">
-                  <label className="font-bold">Phone Number</label>
+                <div className="flex flex-col gap-3">
+                  <label className="font-bold" htmlFor='email'>
+                    Email <span className="text-orange-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name='email'
+                    id='email'
+                    required
+                    onChange={handleChange}
+                    className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
+                  />
+                </div>
+                <div className="flex flex-col gap-3">
+                  <label className="font-bold" htmlFor='phoneNumber'>
+                    Phone Number <span className="text-orange-500">*</span>
+                  </label>
                   <input
                     type="text"
+                    name='phoneNumber'
+                    id='phoneNumber'
+                    required
+                    onChange={handleChange}
                     className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
                   />
                 </div>
-              </div>
-              <div className="col-span-2">
-                <div className="flex flex-col gap-3">
-                  <label className="font-bold">Message</label>
-                  <textarea
-                    placeholder="Write your message..."
-                    className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
-                  />
+                <div className="col-span-2">
+                  <div className="flex flex-col gap-3">
+                    <label className="font-bold" htmlFor='message'>
+                      Message <span className="text-orange-500">*</span>
+                    </label>
+                    <textarea
+                      placeholder="Write your message..."
+                      name='message'
+                      id='message'
+                      required
+                      onChange={handleChange}
+                      className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <button className="text-white bg-orange-500 hover:bg-opacity-90 px-9 py-4 font-bold mt-12 w-full lg:w-fit">
-              Let’s Talk <span className="text-xl">&#8599;</span>
-            </button>
+              <button className="text-white bg-orange-500 hover:bg-opacity-90 px-9 py-4 font-bold mt-12 w-full lg:w-fit">
+                Let’s Talk <span className="text-xl">&#8599;</span>
+              </button>
+            </form>
           </div>
           <div className="lg:ml-28 flex flex-col justify-center col-span-2 lg:col-span-1">
             <Link
@@ -127,11 +172,19 @@ export default function Contact() {
             </Link>
             <Link
               href="#skills"
-              onClick={() => updateActiveNav('blog')}
+              onClick={() => updateActiveNav('skills')}
               className="text-[#ffffff33] hover:text-white text-3xl flex justify-between border-b py-6 font-bold border-[#ffffff33]"
             >
               <span>Skills</span>
               <span>04</span>
+            </Link>
+            <Link
+              href="#testimonial"
+              onClick={() => updateActiveNav('testimonial')}
+              className="text-[#ffffff33] hover:text-white text-3xl flex justify-between border-b py-6 font-bold border-[#ffffff33]"
+            >
+              <span>Testimonial</span>
+              <span>05</span>
             </Link>
             <Link
               href="#contact"
@@ -139,7 +192,7 @@ export default function Contact() {
               className="text-[#ffffff33] hover:text-white text-3xl flex justify-between border-b py-6 font-bold border-[#ffffff33]"
             >
               <span>Contact</span>
-              <span>05</span>
+              <span>06</span>
             </Link>
             <ul className="flex gap-8 mt-12 w-fit mx-auto lg:ml-0">
               <li>

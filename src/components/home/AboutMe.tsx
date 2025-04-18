@@ -8,9 +8,9 @@ export default function AboutMe() {
       <div className="container px-4">
         <HeadingWithLine text="About Me" />
         <p className="font-bold text-2xl lg:text-5xl mt-12 mb-10 leading-tight">
-          I am a Software Developer with 2 years of experience in{' '}
+          I am a Software Developer with nearly 2 years of experience in{' '}
           <span className="text-orange-500">Web Development</span>, tackling challenges and
-          delivering effective, high-quality solutions for diverse projects.
+          delivering effective, high-quality solutions across diverse projects.
         </p>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-0">
           <div className="flex flex-col justify-between">
@@ -22,7 +22,7 @@ export default function AboutMe() {
                 src="/assets/images/home/arrow.svg"
                 className="absolute left-0 top-0"
               />
-              <p className="text-[200px] leading-tight font-bold">2+</p>
+              <p className="text-[200px] leading-tight font-bold">2</p>
               <p className="text-3xl font-bold leading-tight">
                 Years
                 <br />
@@ -36,7 +36,7 @@ export default function AboutMe() {
                 className="absolute right-0 lg:right-12 -bottom-8"
               />
             </div>
-            <CircularButton text="About Me" position="ml-[20%]" hideInMobile={true} />
+            <CircularButton text="View More" link='#experience' position="ml-[20%]" hideInMobile={true} />
           </div>
           <Image
             alt="profile-pic(1)"
