@@ -9,6 +9,7 @@
   --foreground: #171717;
   --primary-orange: #f97316;
   --orange-100: #fff7ed;
+  --max-width: 1320px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,7 +30,6 @@ body {
   background: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* max-width: 1320px; */
 }
 
 * {
@@ -59,7 +59,7 @@ a {
 }
 
 .container {
-  max-width: 1320px !important;
+  max-width: var(--max-width) !important;
   margin-left: auto;
   margin-right: auto;
 }
@@ -150,6 +150,13 @@ a {
   z-index: 2;
 }
 
+@media (max-width: 1280px) {
+  .profession::before,
+  .profession::after {
+    display: none;
+  }
+}
+
 .testimonial-heading {
   text-shadow:
     1px 0 #c2c2c2,
@@ -171,6 +178,15 @@ a {
   right: 0.6%;
   top: 17.01%;
   background: linear-gradient(90deg, rgba(243, 243, 243, 0) 0%, rgba(15, 14, 14, 0.07) 100%);
+}
+
+@media (max-width: 1024px) {
+  .testimonial-heading::after {
+    height: 40px;
+  }
+  .testimonial-sub-image {
+    width: 45%;
+  }
 }
 
 .border-text {
@@ -307,6 +323,9 @@ a {
 }
 
 /* Scroll bar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -321,4 +340,40 @@ a {
 /* React Slick */
 .slick-dots {
   display: none !important;
+}
+
+/* Hero */
+@media (min-width: 1600px) {
+  .hero-image {
+    margin-left: calc((100vw - 1320px - 120px) / 2);
+  }
+}
+
+/* Skills */
+@media (max-width: 1024px) {
+  .css-jineix-MuiButtonBase-root-MuiAccordionSummary-root {
+    padding: 0 !important;
+  }
+  .css-1lj39kh-MuiAccordionDetails-root {
+    padding: 8px 0 !important;
+  }
+}
+
+/* Experience */
+#experience .slick-slide {
+  opacity: 0.5;
+}
+#experience .slick-slide.slick-active.slick-center.slick-current {
+  opacity: 1;
+  scale: 105%;
+}
+.slick-prev, .slick-next {
+  width: 60px !important;
+  height: 60px !important;
+}
+.slick-prev::before, .slick-next::before {
+  font-size: 60px !important;
+}
+.slick-arrow {
+  z-index: 50;
 }

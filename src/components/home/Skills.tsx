@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import HeadingWithLine from '../heading-with-line/HeadingWithLine';
-import { servicesList } from '@/constants/servicesList';
+import { skillList } from '@/constants/skillList';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -16,17 +16,17 @@ export default function Skills() {
   };
   return (
     <section className="pt-28" id="skills">
-      <div className="container relative">
+      <div className="container relative px-4">
         <HeadingWithLine text="My Skills" />
         <Image
           alt="shape-black"
           width={129}
           height={148}
           src="/assets/images/home/shape-black.svg"
-          className="object-contain z-1 absolute right-0 top-0 rotate-180 -scale-x-100 -mr-16"
+          className="object-contain z-1 absolute right-0 top-0 rotate-180 -scale-x-100 lg:-mr-16"
         />
         <div className="my-12">
-          {servicesList.map((item, index) => (
+          {skillList.map((item, index) => (
             <Accordion
               expanded={expanded === `panel${index}`}
               onChange={handleChange(`panel${index}`)}
@@ -38,9 +38,9 @@ export default function Skills() {
                 id="panel1bh-header"
                 className="relative"
               >
-                <p className="text-8xl font-bold">{item.summary}</p>
+                <p className="text-4xl lg:text-8xl font-bold">{item.summary}</p>
                 {expanded === `panel${index}` ? (
-                  <div className="absolute right-0">
+                  <div className="absolute right-0 hidden">
                     <CircularButton text="View" position="" />
                   </div>
                 ) : null}
@@ -55,7 +55,7 @@ export default function Skills() {
             </Accordion>
           ))}
         </div>
-        <CircularButton text="View All" position="mx-auto" />
+        {/* <CircularButton text="View All" position="mx-auto" /> */}
       </div>
     </section>
   );
