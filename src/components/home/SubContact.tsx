@@ -20,8 +20,8 @@ export default function SubContact(props: SubContactProps) {
   // const isBlogActive = activeNav === 'blog';
   const isContactActive = activeNav === 'contact';
 
-  const handleClickTalk = () => {
-    updateActiveNav('contact');
+  const handleClick = (activeNav: string) => {
+    updateActiveNav(activeNav);
     closeSubContact();
   }
 
@@ -96,7 +96,7 @@ export default function SubContact(props: SubContactProps) {
         </ul>
 
         <div className="w-full p-2 mt-8 bg-black hover:bg-orange-500 cursor-pointer text-white rounded flex justify-center items-center">
-          <Link href={'#contact'} onClick={handleClickTalk}>
+          <Link href={'#contact'} onClick={() => handleClick('contact')}>
             Let&apos;s Talk <span className="text-xl">&#8599;</span>
           </Link>
         </div>
@@ -106,7 +106,7 @@ export default function SubContact(props: SubContactProps) {
           <li className="p-4 py-5 home relative w-full border-b border-orange-200">
             <Link
               href={'/'}
-              onClick={() => updateActiveNav('hero')}
+              onClick={() => handleClick('hero')}
               className={`cursor-pointer font-bold ${
                 isHomeActive ? 'nav-link-text-active' : 'nav-link-text-inactive'
               } `}
@@ -117,7 +117,7 @@ export default function SubContact(props: SubContactProps) {
           <li className="p-4 py-5 w-full border-b border-orange-200">
             <Link
               href={'#about-me'}
-              onClick={() => updateActiveNav('about-me')}
+              onClick={() => handleClick('about-me')}
               className={`font-bold ${isAboutMeActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
             >
               About Me
@@ -126,7 +126,7 @@ export default function SubContact(props: SubContactProps) {
           <li className="p-4 py-5 w-full border-b border-orange-200">
             <Link
               href={'#experience'}
-              onClick={() => updateActiveNav('experience')}
+              onClick={() => handleClick('experience')}
               className={`font-bold ${isExperienceActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
             >
               Experience
@@ -135,7 +135,7 @@ export default function SubContact(props: SubContactProps) {
           <li className="p-4 py-5 w-full border-b border-orange-200">
             <Link
               href={'#skills'}
-              onClick={() => updateActiveNav('skills')}
+              onClick={() => handleClick('skills')}
               className={`font-bold ${isSkillsActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
             >
               Skills
@@ -144,7 +144,7 @@ export default function SubContact(props: SubContactProps) {
           <li className="p-4 py-5 w-full border-b border-orange-200">
             <Link
               href={'#testimonial'}
-              onClick={() => updateActiveNav('testimonial')}
+              onClick={() => handleClick('testimonial')}
               className={`font-bold ${isTestimonialActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
             >
               Testimonial
@@ -153,7 +153,7 @@ export default function SubContact(props: SubContactProps) {
           <li className="p-4 py-5 w-full border-b border-orange-200">
             <Link
               href={'#contact'}
-              onClick={() => updateActiveNav('contact')}
+              onClick={() => handleClick('contact')}
               className={`font-bold ${isContactActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
             >
               Contact

@@ -6,20 +6,33 @@ import Image from 'next/image';
 import { useRef, useState, useEffect } from 'react';
 
 export default function Experience() {
+  const [activeProject, setActiveProject] = useState(0);
+  const sliderRef = useRef<Slider | null>(null);
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    sliderRef.current?.slickGoTo(0);
+  }, [activeProject]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const settings = {
     className: "center",
-    centerMode: true,
+    centerMode: screenWidth > 768 ? true : false,
     infinite: true,
     centerPadding: "60px",
     slidesToShow: 1,
     speed: 500
   };
-  const [activeProject, setActiveProject] = useState(0);
-  const sliderRef = useRef<Slider | null>(null);
-
-  useEffect(() => {
-    sliderRef.current?.slickGoTo(0);
-  }, [activeProject]);
 
   return (
     <section className="mt-36 py-36 bg-black" id="experience">
@@ -42,7 +55,7 @@ export default function Experience() {
         <div className="slider-container">
           <Slider {...settings} ref={sliderRef}>
             {projectList[activeProject].responsibilities.map((res, index) => (
-              <div key={index} className='w-full h-full p-8 my-4 rounded-lg overflow-hidden relative'>
+              <div key={index} className='w-full h-full md:p-8 my-8 md:my-4 rounded-lg overflow-hidden relative'>
                 <Image
                   alt={res.content}
                   width={2000}
@@ -51,8 +64,8 @@ export default function Experience() {
                   className="w-full h-full object-contain rounded-lg"
                 />
                 {!!res.content && (
-                  <div className='absolute bottom-12 w-full left-0 right-0 flex justify-center'>
-                    <span className='px-3 py-2 text-white w-1/2 bg-black text-center rounded-lg overflow-hidden flex items-center justify-center'>
+                  <div className='md:absolute bottom-12 w-full left-0 right-0 flex justify-center'>
+                    <span className='px-3 py-2 text-white md:w-1/2 bg-black bg-opacity-60 text-center rounded-lg overflow-hidden flex items-center justify-center'>
                       {res.content}
                     </span>
                   </div>
@@ -63,7 +76,7 @@ export default function Experience() {
                     width={2000}
                     height={2000}
                     src={projectList[activeProject].image}
-                    className="w-12 h-12 object-cover rounded-full absolute bottom-10 left-10"
+                    className="w-5 h-5 md:w-12 md:h-12 object-cover rounded-full absolute top-1 left-1 md:bottom-10 md:top-auto md:left-10"
                   />
                 )}
               </div>
