@@ -95,70 +95,70 @@ export default function SubContact(props: SubContactProps) {
           </li>
         </ul>
 
-        <div className="w-full p-2 mt-8 bg-black hover:bg-orange-500 cursor-pointer text-white rounded flex justify-center items-center">
-          <Link href={'#contact'} onClick={() => handleClick('contact')}>
+        <Link href={'#contact'} onClick={() => handleClick('contact')}>
+          <div className="w-full p-2 mt-8 bg-black hover:bg-orange-500 cursor-pointer text-white rounded flex justify-center items-center">
             Let&apos;s Talk <span className="text-xl">&#8599;</span>
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
       <div className='lg:hidden'>
         <ul className="justify-center items-start h-full font-bold flex flex-col">
-          <li className="p-4 py-5 home relative w-full border-b border-orange-200">
-            <Link
-              href={'/'}
-              onClick={() => handleClick('hero')}
-              className={`cursor-pointer font-bold ${
-                isHomeActive ? 'nav-link-text-active' : 'nav-link-text-inactive'
-              } `}
-            >
+          <Link
+            href={'/'}
+            onClick={() => handleClick('hero')}
+            className={`w-full cursor-pointer font-bold ${
+              isHomeActive ? 'nav-link-text-active' : 'nav-link-text-inactive'
+            } `}
+          >
+            <li className="p-4 py-5 home relative w-full border-b border-orange-200">
               Home
-            </Link>
-          </li>
-          <li className="p-4 py-5 w-full border-b border-orange-200">
-            <Link
-              href={'#about-me'}
-              onClick={() => handleClick('about-me')}
-              className={`font-bold ${isAboutMeActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
-            >
+            </li>
+          </Link>
+          <Link
+            href={'#about-me'}
+            onClick={() => handleClick('about-me')}
+            className={`w-full font-bold ${isAboutMeActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
+          >
+            <li className="p-4 py-5 w-full border-b border-orange-200">
               About Me
-            </Link>
-          </li>
-          <li className="p-4 py-5 w-full border-b border-orange-200">
-            <Link
-              href={'#experience'}
-              onClick={() => handleClick('experience')}
-              className={`font-bold ${isExperienceActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
-            >
+            </li>
+          </Link>
+          <Link
+            href={'#experience'}
+            onClick={() => handleClick('experience')}
+            className={`w-full font-bold ${isExperienceActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
+          >
+            <li className="p-4 py-5 w-full border-b border-orange-200">
               Experience
-            </Link>
-          </li>
-          <li className="p-4 py-5 w-full border-b border-orange-200">
-            <Link
-              href={'#skills'}
-              onClick={() => handleClick('skills')}
-              className={`font-bold ${isSkillsActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
-            >
+            </li>
+          </Link>
+          <Link
+            href={'#skills'}
+            onClick={() => handleClick('skills')}
+            className={`w-full font-bold ${isSkillsActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
+          >
+            <li className="p-4 py-5 w-full border-b border-orange-200">
               Skills
-            </Link>
-          </li>
-          <li className="p-4 py-5 w-full border-b border-orange-200">
-            <Link
-              href={'#testimonial'}
-              onClick={() => handleClick('testimonial')}
-              className={`font-bold ${isTestimonialActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
-            >
+            </li>
+          </Link>
+          <Link
+            href={'#testimonial'}
+            onClick={() => handleClick('testimonial')}
+            className={`w-full font-bold ${isTestimonialActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
+          >
+            <li className="p-4 py-5 w-full border-b border-orange-200">
               Testimonial
-            </Link>
-          </li>
-          <li className="p-4 py-5 w-full border-b border-orange-200">
-            <Link
-              href={'#contact'}
-              onClick={() => handleClick('contact')}
-              className={`font-bold ${isContactActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
-            >
+            </li>
+          </Link>
+          <Link
+            href={'#contact'}
+            onClick={() => handleClick('contact')}
+            className={`w-full font-bold ${isContactActive ? 'nav-link-text-active' : 'nav-link-text-inactive'} `}
+          >
+            <li className="p-4 py-5 w-full border-b border-orange-200">
               Contact
-            </Link>
-          </li>
+            </li>
+          </Link>
         </ul>
       </div>
     </div>

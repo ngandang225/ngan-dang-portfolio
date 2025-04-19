@@ -39,7 +39,7 @@ export default function Testimonial() {
         <div className="grid grid-cols-12 mt-10">
           <div className="col-span-12 lg:col-span-7 lg:pr-10 flex flex-col justify-between">
             <p className="text-2xl font-bold">
-              Working with Ngan has been an absolute pleasure. Ngan is not only technically skilled but also incredibly reliable and proactive in her approach to solving problems.
+              I had an amazing experience working with Ngan on a website project. She consistently strives to follow best practices in web development and actively contributes to creating a positive and enjoyable work environment.
             </p>
             <div>
               <div className="grid grid-cols-12">

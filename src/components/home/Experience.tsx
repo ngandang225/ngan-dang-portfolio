@@ -55,7 +55,7 @@ export default function Experience() {
         <div className="slider-container">
           <Slider {...settings} ref={sliderRef}>
             {projectList[activeProject].responsibilities.map((res, index) => (
-              <div key={index} className='w-full h-full md:p-8 my-8 md:my-4 rounded-lg overflow-hidden relative'>
+              <div key={index} className='w-full h-full px-3 md:p-8 my-8 md:my-4 rounded-lg overflow-hidden relative'>
                 <Image
                   alt={res.content}
                   width={2000}

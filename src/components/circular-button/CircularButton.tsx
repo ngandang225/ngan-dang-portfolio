@@ -13,12 +13,12 @@ export default function CircularButton(props: CircularButtonProps) {
   const borderStyle = border === true ? 'border border-zinc-800' : '';
 
   return (
-    <div
-      className={`btn-container cursor-pointer p-6 w-fit aspect-square rounded-full bg-black ${hideInMobile ? 'hidden lg:flex' : 'flex'} items-center justify-center ${position} ${borderStyle}`}
-    >
-      <Link href={link ?? "#"} target={link && !link.includes("#") ? "_blank" : undefined} className="font-semibold text-white text-center">
+    <Link href={link ?? "#"} target={link && !link.includes("#") ? "_blank" : undefined} className="font-semibold text-white text-center">
+      <div
+        className={`btn-container cursor-pointer p-6 w-fit aspect-square rounded-full bg-black ${hideInMobile ? 'hidden lg:flex' : 'flex'} items-center justify-center ${position} ${borderStyle}`}
+      >
         {text} <span className="text-xl">&#8599;</span>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }
