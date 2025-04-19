@@ -1,11 +1,19 @@
 import AppContext from '@/contexts/appContext';
 import { sendEmail } from '@/utils/sendEmail';
+import { Alert, CircularProgress, Collapse, IconButton } from '@mui/material';
 import Link from 'next/link';
 import React, { useContext, useState } from 'react';
 import { FaFacebookF, FaRegEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { IoIosClose } from "react-icons/io";
 
 export default function Contact() {
   const { updateActiveNav } = useContext(AppContext);
+  const [alert, setAlert] = useState({
+    open: false,
+    message: ''
+  });
+  const [loading, setLoading] = useState(false);
+  
   const [contactForm, setContactForm] = useState({
     firstName: '',
     lastName: '',
@@ -20,8 +28,10 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     const res = await sendEmail(contactForm);
-    alert(res.message);
+    setAlert({ open: true, message: res.message });
+    setLoading(false);
   }
 
   return (
@@ -140,9 +150,35 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-              <button className="text-white bg-orange-500 hover:bg-opacity-90 px-9 py-4 font-bold mt-12 w-full lg:w-fit">
-                Let’s Talk <span className="text-xl">&#8599;</span>
-              </button>
+              <div className='flex gap-5 mt-12 items-center flex-col lg:flex-row'>
+                <button className={`text-white bg-orange-500 hover:bg-opacity-90 px-9 py-4 font-bold w-full lg:w-fit ${loading ? 'pointer-events-none opacity-70' : ''}`}>
+                  Let’s Talk
+                  {loading ? (
+                    <CircularProgress color="inherit" size="16px" className='ml-2' />
+                  ) : (
+                    <span className="text-xl">&#8599;</span>
+                  )}
+                </button>
+                <Collapse in={alert.open} className='w-full lg:flex-1'>
+                  <Alert
+                    action={
+                      <IconButton
+                        aria-label="close"
+                        color="inherit"
+                        size="small"
+                        onClick={() => {
+                          setAlert({ open: false, message: '' });
+                        }}
+                      >
+                        <IoIosClose size={20} />
+                      </IconButton>
+                    }
+                    sx={{ mb: 2 }}
+                  >
+                    {alert.message}
+                  </Alert>
+                </Collapse>
+              </div>
             </form>
           </div>
           <div className="lg:ml-28 flex flex-col justify-center col-span-2 lg:col-span-1">
