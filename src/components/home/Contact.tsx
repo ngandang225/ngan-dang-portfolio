@@ -1,6 +1,7 @@
 import AppContext from '@/contexts/appContext';
 import { sendEmail } from '@/utils/sendEmail';
-import { Alert, CircularProgress, Collapse, IconButton } from '@mui/material';
+import { validatePayload } from '@/utils/validatePayload';
+import { Alert, CircularProgress, IconButton, Snackbar } from '@mui/material';
 import Link from 'next/link';
 import React, { useContext, useState } from 'react';
 import { FaFacebookF, FaRegEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa';
@@ -9,11 +10,12 @@ import { IoIosClose } from "react-icons/io";
 export default function Contact() {
   const { updateActiveNav } = useContext(AppContext);
   const [alert, setAlert] = useState({
+    success: false,
     open: false,
     message: ''
   });
   const [loading, setLoading] = useState(false);
-  
+
   const [contactForm, setContactForm] = useState({
     firstName: '',
     lastName: '',
@@ -29,8 +31,14 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    const payloadError = validatePayload(contactForm);
+    if (payloadError) {
+      setAlert({ open: true, message: payloadError, success: false });
+      setLoading(false);
+      return;
+    }
     const res = await sendEmail(contactForm);
-    setAlert({ open: true, message: res.message });
+    setAlert({ open: true, message: res.message, success: res.success });
     setLoading(false);
   }
 
@@ -159,7 +167,13 @@ export default function Contact() {
                     <span className="text-xl">&#8599;</span>
                   )}
                 </button>
-                <Collapse in={alert.open} className='w-full lg:flex-1'>
+                <Snackbar
+                  open={alert.open}
+                  autoHideDuration={3000} // Auto-close after 3 seconds
+                  onClose={() => setAlert({ open: false, message: '', success: false })}
+                  anchorOrigin={{ vertical: 'top', horizontal: 'right' }} // You can change position here
+                  className='w-full lg:flex-1'
+                >
                   <Alert
                     action={
                       <IconButton
@@ -167,17 +181,18 @@ export default function Contact() {
                         color="inherit"
                         size="small"
                         onClick={() => {
-                          setAlert({ open: false, message: '' });
+                          setAlert({ open: false, message: '', success: false });
                         }}
                       >
                         <IoIosClose size={20} />
                       </IconButton>
                     }
-                    sx={{ mb: 2 }}
+                    severity={alert.success ? 'success' : 'error'}
+                    sx={{ mr: { xs: 2, lg: 0 }, mt: { xs: '80px', lg: '88px' } }}
                   >
                     {alert.message}
                   </Alert>
-                </Collapse>
+                </Snackbar>
               </div>
             </form>
           </div>
