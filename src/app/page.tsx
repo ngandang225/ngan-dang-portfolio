@@ -55,11 +55,7 @@ export default function Home() {
       {/* <Partner /> */}
       {/* <Blog /> */}
       <Contact />
-      {isSubContactOpen && (
-        <OutsideClickHandler onOutsideClick={() => updateIsSubContactOpen(false)}>
-          <SubContact closeSubContact={() => updateIsSubContactOpen(false)} />
-        </OutsideClickHandler>
-      )}
+      {isSubContactOpen && <SubContact />}
       <div className="fixed bottom-3 lg:bottom-12 right-3 lg:right-12 w-12 h-12 cursor-pointer z-40" onClick={handleClickScrollToTop}>
         <CircularProgressbarWithChildren
           value={percentage}
