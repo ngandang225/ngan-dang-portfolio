@@ -27,7 +27,7 @@ export default function SubContact(props: SubContactProps) {
 
   return (
     <div
-      className={`fixed top-0 right-0 bg-[#f3f3f3] p-6 pt-12 lg:pt-20 z-50 w-5/6 sm:w-3/5 md:w-1/3 xl:w-[25%] h-screen ${isSubContactOpen ? 'sub-contact-animation' : 'sub-contact-animation-hide'}`}
+      className={`fixed top-0 right-0 bg-[#f3f3f3] p-6 pt-12 lg:pt-20 z-[100] w-5/6 sm:w-3/5 md:w-1/3 xl:w-[25%] h-screen ${isSubContactOpen ? 'sub-contact-animation' : 'sub-contact-animation-hide'}`}
     >
       <IoIosClose className='absolute top-2 right-2 cursor-pointer rounded-full hover:bg-gray-200' size={32} onClick={closeSubContact} />
       <div className='hidden lg:block'>

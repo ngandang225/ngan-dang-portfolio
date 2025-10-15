@@ -151,6 +151,7 @@ export default function Contact() {
                       placeholder="Write your message..."
                       name='message'
                       id='message'
+                      rows={3}
                       required
                       onChange={handleChange}
                       className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
