@@ -9,6 +9,7 @@ export const skillList = [
       'RESTful APIs, API Integration',
       'Docker',
       'Responsive Design',
+      'Shopify’s ecosystem',
       'MySQL, SQL Server, MongoDB',
       'Git, Github',
     ],
