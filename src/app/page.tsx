@@ -11,13 +11,12 @@ import SubContact from '@/components/home/SubContact';
 import { FaArrowUpLong } from 'react-icons/fa6';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import OutsideClickHandler from 'react-outside-click-handler';
 import { useContext } from 'react';
 import AppContext from '@/contexts/appContext';
 
 export default function Home() {
   const [percentage, setPercentage] = React.useState<number>(0);
-  const { isSubContactOpen, updateIsSubContactOpen, updateActiveNav } = useContext(AppContext);
+  const { isSubContactOpen, updateActiveNav } = useContext(AppContext);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -55,11 +54,7 @@ export default function Home() {
       {/* <Partner /> */}
       {/* <Blog /> */}
       <Contact />
-      {isSubContactOpen && (
-        <OutsideClickHandler onOutsideClick={() => updateIsSubContactOpen(false)}>
-          <SubContact closeSubContact={() => updateIsSubContactOpen(false)} />
-        </OutsideClickHandler>
-      )}
+      {isSubContactOpen && <SubContact />}
       <div className="fixed bottom-3 lg:bottom-12 right-3 lg:right-12 w-12 h-12 cursor-pointer z-40" onClick={handleClickScrollToTop}>
         <CircularProgressbarWithChildren
           value={percentage}

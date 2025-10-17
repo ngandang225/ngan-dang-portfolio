@@ -40,6 +40,9 @@ export default function Contact() {
     const res = await sendEmail(contactForm);
     setAlert({ open: true, message: res.message, success: res.success });
     setLoading(false);
+    if (res.success) {
+      setContactForm({ firstName: '', lastName: '', email: '', phoneNumber: '', message: '' });
+    }
   }
 
   return (
@@ -99,6 +102,7 @@ export default function Contact() {
                     name="firstName"
                     id="firstName"
                     required
+                    value={contactForm.firstName}
                     onChange={handleChange}
                     className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
                   />
@@ -112,6 +116,7 @@ export default function Contact() {
                     name='lastName'
                     id='lastName'
                     required
+                    value={contactForm.lastName}
                     onChange={handleChange}
                     className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
                   />
@@ -125,6 +130,7 @@ export default function Contact() {
                     name='email'
                     id='email'
                     required
+                    value={contactForm.email}
                     onChange={handleChange}
                     className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
                   />
@@ -138,6 +144,7 @@ export default function Contact() {
                     name='phoneNumber'
                     id='phoneNumber'
                     required
+                    value={contactForm.phoneNumber}
                     onChange={handleChange}
                     className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
                   />
@@ -151,7 +158,9 @@ export default function Contact() {
                       placeholder="Write your message..."
                       name='message'
                       id='message'
+                      rows={3}
                       required
+                      value={contactForm.message}
                       onChange={handleChange}
                       className="border-b border-[#ffffff33] py-1 bg-transparent outline-0 focus:border-white"
                     />
